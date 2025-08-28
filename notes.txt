@@ -1,0 +1,53 @@
+Purpose:
+
+Detects fraudulent credit card transactions
+Helps prevent customers from being charged for unauthorized purchases
+Uses both quantum and classical machine learning approaches for comparison
+Data Handling:
+
+Uses a dataset from Kaggle containing credit card transactions
+The data includes legitimate and fraudulent transactions
+Highly imbalanced dataset: only 0.172% of transactions are fraudulent
+Features are already preprocessed using PCA (V1 to V28) to protect user privacy
+Data Preprocessing:
+
+Balances the dataset using undersampling technique
+Scales features to [0,1] range using MinMaxScaler
+Performs zero-padding to make features compatible with quantum circuits
+Splits data into training (70%) and testing (30%) sets
+Quantum Model Implementation:
+
+Uses Qiskit for quantum machine learning
+Components:
+Feature Map (FM): Converts classical data to quantum states using amplitude encoding
+Parameterized Quantum Circuit (PQC): Creates the quantum circuit for learning
+Variational Quantum Classifier (VQC): Combines FM and PQC for classification
+Uses quantum simulator for training
+
+
+Classical Models Comparison: Implements several classical machine learning models:
+
+Logistic Regression
+Neural Network (MLPClassifier)
+Support Vector Machine (SVM)
+Random Forest
+Model Evaluation:
+
+Uses multiple metrics:
+Precision
+Recall
+F1-score
+ROC AUC score
+Important because of the imbalanced nature of fraud detection
+Model Deployment:
+
+Saves the trained quantum model and scaler
+Provides functionality to load and use the model in other applications
+Can be integrated into websites or applications for real-time fraud detection
+This project demonstrates how quantum computing can be applied to real-world financial problems, specifically in fraud detection, while comparing its performance with traditional machine learning approaches. It's particularly interesting because it uses quantum computing for a practical business application in the financial sector.
+
+
+Data encoding (Feature Map) - converts classical data to quantum states
+Variational circuit (PQC) - learns patterns in the quantum states
+Measurement - converts quantum states back to classical predictions
+Optimization (COBYLA) - iteratively improves the circuit parameters
